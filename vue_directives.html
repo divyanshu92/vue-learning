@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>vue</title>
+	<style>
+		.pinkBG{
+			background-color: red;
+		}
+		#pinkBGG{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+<div id="app">
+	<div v-bind:class="vueClass">
+		{{ message }}-{{Math.ceil(Math.random()*6)}}
+	</div>
+	<div v-bind:id="vueClasss">
+		{{ message }}-{{Math.ceil(Math.random()*6)}}
+	</div>
+	<div v-bind:style="{'font-size':size+'px'}">
+		{{ message }}-{{Math.ceil(Math.random()*6)}}
+	</div>
+	<div v-bind:style="{'backgroundColor':isImportant ? 'lightcoral' : 'lightgray'}">
+		{{ message }}-{{Math.ceil(Math.random()*6)}}
+	</div>
+	<div v-bind:class="{myClass: myClasss}">
+		{{ message }}-{{Math.ceil(Math.random()*6)}}
+	</div>
+	<div :class="{myClass: myClassss}">
+		{{ message }}-{{Math.ceil(Math.random()*6)}}
+	</div>
+</div>
+<script
+  src="https://unpkg.com/vue@3/dist/vue.global.js">
+</script>
+<script>
+	const app=Vue.createApp({
+		data(){
+			return{
+				message:"hello world",
+				vueClass:"pinkBG",
+				vueClasss:"pinkBGG",
+				size:20,
+				isImportant:false,
+				myClasss:true,
+				myClassss:true,
+			}
+		}
+	})
+	app.mount('#app')
+</script>
+</body>
+</html>

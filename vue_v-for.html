@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>vue</title>
+	
+</head>
+<body>
+<div id="app">
+    <div v-for="x in manyFoods" v-bind:class="x"></div>
+	<div v-for="x in manyFoods">{{ x }}</div>
+    <div v-for="(x, index) in manyFoodss">
+        <div v-bind:class="x.name">{{index}}: {{x.url}}</div>
+    </div>
+</div>
+<script
+  src="https://unpkg.com/vue@3/dist/vue.global.js">
+</script>
+<script>
+	const app=Vue.createApp({
+		data(){
+			return{
+				manyFoods: [
+                    'Burrito',
+                    'Salad',
+                    'Cake',
+                    'Soup',
+                    'Fish',
+                    'Pizza',
+                    'Rice'
+                ],
+                manyFoodss: [
+                    {name: 'Burrito', url: 'img_burrito.svg'},
+                    {name: 'Salad', url: 'img_salad.svg'},
+                    {name: 'Cake', url: 'img_cake.svg'},
+                    {name: 'Soup', url: 'img_soup.svg'},
+                    {name: 'Fish', url: 'img_fish.svg'},
+                    {name: 'Pizza', url: 'img_pizza.svg'},
+                    {name: 'Rice', url: 'img_rice.svg'}
+                ]
+			}
+		}
+	})
+	app.mount('#app')
+</script>
+</body>
+</html>

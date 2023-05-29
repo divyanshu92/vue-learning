@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>vue</title>
+	
+</head>
+<body>
+<div id="app">
+	<div v-show="show1">{{ message }}-1</div>
+	<div v-show="show2">{{ message }}-2</div>
+	
+</div>
+<script
+  src="https:/a/unpkg.com/vue@3/dist/vue.global.js">
+</script>
+<script>
+	const app=Vue.createApp({
+		data(){
+			return{
+				message:"hello world",
+				show1:true,
+				show2:true,
+			}
+		}
+	})
+	app.mount('#app')
+</script>
+</body>
+</html>

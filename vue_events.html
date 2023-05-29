@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>vue</title>
+	
+</head>
+<body>
+<div id="app">
+    <!-- <div>{{"button clicked"+ count}}</div> -->
+    <!-- <button v-on:click="count++">click++</button> -->
+    <div v-if="changeColor">changeColor</div>
+    <div v-else>changeColor no</div>
+    <button v-on:click="changeColor">click++</button>
+    <button v-on:click="changeColorr">click-r</button>
+</div>
+<script
+  src="https://unpkg.com/vue@3/dist/vue.global.js">
+</script>
+<script>
+	const app=Vue.createApp({
+		data(){
+			return{
+				message:"hello world",
+                count:0,
+                changeColor:1,
+			}
+		}
+	})
+	app.mount('#app')
+</script>
+</body>
+</html>
