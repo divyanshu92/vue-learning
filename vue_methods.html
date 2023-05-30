@@ -15,10 +15,12 @@
 	<span>{{text}}</span>
 	<span>{{textt}}</span> -->
 
-	<p>{{ "Moose count: " + count }}</p>
+	<!-- <p>{{ "Moose count: " + count }}</p>
 	<button v-on:click="addMoose(+1)">+1</button>
 	<button v-on:click="addMoose(+5)">+5</button>
-	<button v-on:click="addMoose(-1)">-1</button>
+	<button v-on:click="addMoose(-1)">-1</button> -->
+	<div>{{text}}</div>
+	<button id="divyanshu" v-on:click="myMethod($event,'hello')">Click</button>
 
 </div>
 <script
@@ -34,7 +36,9 @@
 				// text:'',
 				// textt:0,
 
-				count:0,
+				// count:0,
+
+				text: 'init'
 			}
 		},
 		methods:{
@@ -47,11 +51,14 @@
 			// 	this.textt++
 			//  }
 
-			addMoose(number) {
-				this.count+=number
+			// addMoose(number) {
+			// 	this.count+=number
+			// }
+
+			myMethod(e, message){
+				this.text = message + ', '
+				this.text += e.target.id 
 			}
-
-
 
 		}
 	})

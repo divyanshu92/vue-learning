@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>vue</title>
+	
+</head>
+<body>
+<div id="app">
+	<!-- <button v-on:click.once="createAlert">click</button> -->
+	<!-- <input v-on:keydown="getKey">
+	<p>{{keyvalue}}</p> -->
+
+	<textarea v-on:keyup.s="createAlert2">click</textarea>
+
+</div>
+<script
+  src="https://unpkg.com/vue@3/dist/vue.global.js">
+</script>
+<script>
+	const app=Vue.createApp({
+		data(){
+			return{
+				message:"click once only",
+				keyvalue: ""
+			}
+		},
+		methods:{
+			// createAlert(){
+			// 	alert('this is alert')
+			// }
+			// getKey(e){
+			// 	this.keyvalue = e.key
+			// }
+			createAlert2(){
+				alert('this is alert')
+			}
+		}
+	})
+	app.mount('#app')
+</script>
+</body>
+</html>
