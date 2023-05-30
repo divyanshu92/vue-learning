@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>vue</title>
+	
+</head>
+<body>
+<div id="app">
+	<!-- <div>{{text}}</div> -->
+	<!-- <button v-on:click="writeText()">writeText</button> -->
+	
+	<!-- <textarea name="abc" id="abc" cols="30" rows="10" v-on:input="writeText"></textarea>
+	<span>{{text}}</span>
+	<span>{{textt}}</span> -->
+
+	<p>{{ "Moose count: " + count }}</p>
+	<button v-on:click="addMoose(+1)">+1</button>
+	<button v-on:click="addMoose(+5)">+5</button>
+	<button v-on:click="addMoose(-1)">-1</button>
+
+</div>
+<script
+  src="https://unpkg.com/vue@3/dist/vue.global.js">
+</script>
+<script>
+	const app=Vue.createApp({
+		data(){
+			return{
+				message:"hello world",
+				// text:''
+				
+				// text:'',
+				// textt:0,
+
+				count:0,
+			}
+		},
+		methods:{
+			// writeText(){
+			// 	this.text='hello world 1'
+			// }
+
+			//  writeText(event){
+			//  	this.text=event.target.value,
+			// 	this.textt++
+			//  }
+
+			addMoose(number) {
+				this.count+=number
+			}
+
+
+
+		}
+	})
+	app.mount('#app')
+</script>
+</body>
+</html>

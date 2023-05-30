@@ -10,10 +10,26 @@
 <div id="app">
     <!-- <div>{{"button clicked"+ count}}</div> -->
     <!-- <button v-on:click="count++">click++</button> -->
-    <div v-if="changeColor">changeColor</div>
-    <div v-else>changeColor no</div>
-    <button v-on:click="changeColor">click++</button>
-    <button v-on:click="changeColorr">click-r</button>
+
+    <!-- <div>toggle:</div>
+    <div v-if="toggle">true</div>
+    <div v-else>false</div>
+    <button v-on:click="toggle = ! toggle">toggle change</button>  -->
+	
+	<!-- <input type="text" name="a" id="a" v-on:input="inpCount++">
+	<p>{{'inpCount: '+inpCount}}</p> -->
+
+	<!-- <div v-on:mousemove="colorVal=Math.floor(Math.random()*360)" v-bind:style="{backgroundColor:'hsl('+colorVal+',80%,80%)'}"></div> -->
+
+	<!-- <div>{{imgUrl}}</div>
+	<ol>
+		<li v-for="food in manyFoods" v-on:click="imgUrl=food.url">{{food.name}}</li>
+	</ol> -->
+
+	<div>{{imgUrl}}</div>
+	<ol>
+		<li v-for="food in manyFoods" @:click="imgUrl=food.url">{{food.name}}</li>
+	</ol>
 </div>
 <script
   src="https://unpkg.com/vue@3/dist/vue.global.js">
@@ -22,9 +38,21 @@
 	const app=Vue.createApp({
 		data(){
 			return{
-				message:"hello world",
-                count:0,
-                changeColor:1,
+				// message:"hello world",
+                // count:0,
+				// toggle: false
+
+				// inpCount: 0
+
+				// colorVal: 50
+
+				imgUrl: 'img_salad.svg',
+				manyFoods: [
+					{name: 'Burrito', url: 'img_burrito.svg'},
+					{name: 'Salad', url: 'img_salad.svg'},
+					{name: 'Cake', url: 'img_cake.svg'},
+					{name: 'Soup', url: 'img_soup.svg'}
+				]
 			}
 		}
 	})
