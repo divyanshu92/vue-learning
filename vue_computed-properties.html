@@ -8,20 +8,27 @@
 </head>
 <body>
 <div id="app">
-    
+    <input type="checkbox" v-model="chbxVal"> {{ isImportant }}
 </div>
 <script
   src="https://unpkg.com/vue@3/dist/vue.global.js">
 </script>
 <script>
 	const app=Vue.createApp({
-		template:``,
 		data(){
-			return{}
+			return{
+				chbxVal:false
+			}
 		},
-        computed:{},
-        methods:{},
-		watch:{}
+        computed:{
+            isImportant(){
+                if (this.chbxVal) {
+                    return 'yes'
+                } else {
+                    return 'no'
+                }
+            }
+        }
 	})
 	app.mount('#app')
 </script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>vue</title>
+	<style>
+
+#app {
+      border: dashed black 1px;
+      display: inline-block;
+      padding: 0 20px;
+    }
+    #app label, #app li {
+      padding: 5px;
+      border-radius: 5px;
+    }
+    #app label:hover, #app li:hover {
+      cursor: pointer;
+      background-color: lightgray;
+    }
+    ul {
+      list-style-type: none;
+    }
+    li {
+      margin: 2px;
+      background-color: rgb(211, 254, 211);
+    }
+    .impClass {
+      background-color: rgb(255, 202, 202);
+    }
+    #ulFound li {
+      text-decoration: line-through;
+      background-color: rgb(230,230,230);
+    }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- <input type="text" v-model="message"/>{{message}} -->
+    <!-- <input type="checkbox" name="" id="" v-model="checkbox_status">{{checkbox_status}} -->
+    <form v-on:submit.prevent="addItem">
+		<p>Add item</p>
+		<p>item name: <input type="text" required v-model="itemName"></p>
+		<p>how many: <input type="text" required v-model="itemNumber"></p>
+        <p>Important?
+            <label for="">
+                <input type="checkbox" name="" id="" v-model="itemImportant">{{important}}
+            </label>
+        </p>
+		<button type="submit">add item</button>
+	</form>
+	<p>shooping list</p>
+	<ul id="ulforfind">
+		<li 
+            v-for="item in shoppingList"
+            v-bind:class="{impClass:item.important}"
+            v-on:click="item.found=!item.found"
+            v-show="!item.found"
+        >
+                {{item.name}}, {{item.number}}
+            </li>
+	</ul>
+    <ul id="ulFound">
+		<li 
+            v-for="item in shoppingList"
+            v-bind:class="{impClass:item.important}"
+            v-on:click="item.found=!item.found"
+            v-show="item.found"
+        >
+                {{item.name}}, {{item.number}}
+            </li>
+	</ul>
+</div>
+<script
+  src="https://unpkg.com/vue@3/dist/vue.global.js">
+</script>
+<script>
+	const app=Vue.createApp({
+		data(){
+			return{
+				// message:"hello world"
+                // checkbox_status: true
+                itemName: null,
+				itemNumber: null,
+				important: false,
+				shoppingList:[
+					{name:'tomatoes', number: 5, important: false, found: false}
+				]
+			}
+		},
+		methods:{
+			addItem(){
+				let item = {
+					name: this.itemName,
+					number: this.itemNumber,
+					important: this.itemImportant,
+					found: false,
+				}
+				this.shoppingList.push(item)
+				this.itemName =  null
+				this.itemNumber=null
+				this.itemImportant=null
+			}
+		}
+	})
+	app.mount('#app')
+</script>
+</body>
+</html>
